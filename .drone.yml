@@ -3,6 +3,8 @@ pipeline:
     image: spritsail/docker-build
     volumes: [ '/var/run/docker.sock:/var/run/docker.sock' ]
     repo: minecraft-dev
+    build_args:
+      - MC_VER=${MC_VER%%,*}
 
   test:
     image: spritsail/docker-test
@@ -20,11 +22,14 @@ pipeline:
     when: { branch: [ master ], event: [ push, tag, deployment ] }
     from: minecraft-dev
     repo: spritsail/minecraft
-    tags:
-      - 'latest'
-      - '%label org.label-schema.version'
+    tags: ${MC_VER}
 
   notify:
     image: spritsail/notify
     when: { status: [ success, failure ] }
     secrets: [ webhook_url, notify_token ]
+
+matrix:
+  MC_VER:
+    - 1.12.2
+    - 1.13.2,latest
