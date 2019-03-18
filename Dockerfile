@@ -8,7 +8,7 @@ LABEL maintainer="Spritsail <minecraft@spritsail.io>" \
       org.label-schema.description="Minecraft server" \
       org.label-schema.version=${MC_VER}
 
-RUN apk --no-cache add openjdk8-jre curl jq && \
+RUN apk --no-cache add openjdk8-jre nss curl jq && \
     \
     curl -fsSL https://launchermeta.mojang.com/mc/game/version_manifest.json \
         | jq -r ".versions[] | select(.id == \"$MC_VER\") | .url" \
