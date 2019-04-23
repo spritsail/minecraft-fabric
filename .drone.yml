@@ -34,4 +34,5 @@ matrix:
   MC_VER:
     - 1.5.2   # for Inferno Mines
     - 1.12.2
-    - 1.13.2,latest
+    - 1.13.2
+    - 1.14,latest
