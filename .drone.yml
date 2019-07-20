@@ -35,4 +35,4 @@ matrix:
     - 1.5.2   # for Inferno Mines
     - 1.12.2
     - 1.13.2
-    - 1.14.2,latest
+    - 1.14.4,latest
