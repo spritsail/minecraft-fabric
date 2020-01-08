@@ -1,8 +1,8 @@
 def main(ctx):
   return [
     step("1.12.2"),
-    step("1.13.2"),
-    step("1.14.4",["latest"]),
+    step("1.14.4"),
+    step("1.15.1",["latest"]),
   ]
 
 def step(mcver,tags=[]):
