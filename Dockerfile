@@ -1,6 +1,6 @@
 FROM spritsail/alpine:3.11
 
-ARG MC_VER=1.15.1
+ARG MC_VER=1.15.2
 LABEL maintainer="Spritsail <minecraft@spritsail.io>" \
       org.label-schema.vendor="Spritsail" \
       org.label-schema.name="Minecraft server" \
