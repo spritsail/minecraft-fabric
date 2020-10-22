@@ -3,7 +3,7 @@ def main(ctx):
     step("1.12.2"),
     step("1.14.4"),
     step("1.15.2"),
-    step("1.16.2",["latest"]),
+    step("1.16.3",["latest"]),
   ]
 
 def step(mcver,tags=[]):
