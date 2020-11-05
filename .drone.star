@@ -3,7 +3,9 @@ def main(ctx):
     step("1.12.2"),
     step("1.14.4"),
     step("1.15.2"),
-    step("1.16.3",["latest"]),
+    step("1.16.4",["latest"]),
+
+    step("20w45a", ["snapshot"]),
   ]
 
 def step(mcver,tags=[]):
