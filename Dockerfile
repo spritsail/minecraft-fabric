@@ -1,6 +1,7 @@
-FROM spritsail/alpine:3.12
+FROM spritsail/alpine:edge
 
-ARG MC_VER=1.16.4
+ARG MC_VER=1.17.1
+ARG JRE_VER=16
 LABEL maintainer="Spritsail <minecraft@spritsail.io>" \
       org.label-schema.vendor="Spritsail" \
       org.label-schema.name="Minecraft server" \
@@ -8,7 +9,7 @@ LABEL maintainer="Spritsail <minecraft@spritsail.io>" \
       org.label-schema.description="Minecraft server" \
       org.label-schema.version=${MC_VER}
 
-RUN apk --no-cache add openjdk8-jre nss curl jq && \
+RUN apk --no-cache add openjdk${JRE_VER}-jre nss curl jq && \
     \
     curl -fsSL https://launchermeta.mojang.com/mc/game/version_manifest.json \
         | jq -r ".versions[] | select(.id == \"$MC_VER\") | .url" \

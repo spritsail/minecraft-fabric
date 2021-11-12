@@ -1,14 +1,12 @@
 def main(ctx):
   return [
-    step("1.12.2"),
-    step("1.14.4"),
-    step("1.15.2"),
-    step("1.16.4",["latest"]),
+    step("1.16.5",[],"8"),
+    step("1.17.1",["latest"]),
 
-    step("20w45a", ["snapshot"]),
+    step("1.18-pre1",["snapshot"]),
   ]
 
-def step(mcver,tags=[]):
+def step(mcver,tags=[],jre="16"):
   return {
     "kind": "pipeline",
     "name": "build-%s" % mcver,
@@ -21,6 +19,7 @@ def step(mcver,tags=[]):
           "repo": "minecraft-dev-%s" % mcver,
           "build_args": [
             "MC_VER=%s" % mcver,
+            "JRE_VER=%s" % jre,
           ],
         },
       },
@@ -32,7 +31,7 @@ def step(mcver,tags=[]):
           "repo": "minecraft-dev-%s" % mcver,
           "exec_pre": "echo eula=true > eula.txt",
           "log_pipe": "grep -qm 1 \\'Done ([0-9]\\\\+\\\\.[0-9]\\\\+s)\\\\!\\'",
-          "timeout": 60,
+          "timeout": 600,
         },
       },
       {
