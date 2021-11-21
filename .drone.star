@@ -1,12 +1,12 @@
 def main(ctx):
   return [
     step("1.16.5",[],"8"),
-    step("1.17.1",["latest"]),
+    step("1.17.1",["latest"],"16"),
 
-    step("1.18-pre1",["snapshot"]),
+    step("1.18-pre5",["snapshot"],"17"),
   ]
 
-def step(mcver,tags=[],jre="16"):
+def step(mcver,tags=[],jre="17"):
   return {
     "kind": "pipeline",
     "name": "build-%s" % mcver,
