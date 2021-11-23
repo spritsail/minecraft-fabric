@@ -3,7 +3,7 @@ def main(ctx):
     step("1.16.5",[],"8"),
     step("1.17.1",["latest"],"16"),
 
-    step("1.18-pre5",["snapshot"],"17"),
+    step("1.18-pre6",["snapshot"],"17"),
   ]
 
 def step(mcver,tags=[],jre="17"):
