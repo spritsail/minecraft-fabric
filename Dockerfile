@@ -1,7 +1,7 @@
-FROM spritsail/alpine:edge
+FROM spritsail/alpine:3.15
 
 ARG MC_VER=1.17.1
-ARG JRE_VER=16
+ARG JRE_VER=17
 LABEL maintainer="Spritsail <minecraft@spritsail.io>" \
       org.label-schema.vendor="Spritsail" \
       org.label-schema.name="Minecraft server" \
