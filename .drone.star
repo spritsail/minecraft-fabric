@@ -35,7 +35,10 @@ def step(mcver,fabricver,tags=[]):
         "pull": "always",
         "settings": {
           "repo": "spritsail/minecraft-fabric",
-          "tags": [mcver] + tags,
+          "tags": [
+            mcver,
+            "%s-%s" % (mcver, fabricver),
+          ] + tags,
           "login": {
             "from_secret": "docker_login",
           },

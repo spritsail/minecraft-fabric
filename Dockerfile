@@ -2,12 +2,13 @@ FROM spritsail/alpine:3.15
 
 ARG MC_VER=1.18.1
 ARG FABRIC_VER=0.10.2
+
 LABEL maintainer="Spritsail <minecraft@spritsail.io>" \
       org.label-schema.vendor="Spritsail" \
       org.label-schema.name="Minecraft server" \
       org.label-schema.url="https://minecraft.net/en-us/download/server/" \
       org.label-schema.description="Minecraft server" \
-      org.label-schema.version=${MC_VER}
+      org.label-schema.version=${MC_VER}-${FABRIC_VER}
 
 WORKDIR /usr/lib/minecraft
 RUN apk --no-cache add openjdk17-jre-headless nss curl && \
