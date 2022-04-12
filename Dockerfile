@@ -1,6 +1,6 @@
 FROM spritsail/alpine:3.15
 
-ARG MC_VER=1.18.1
+ARG MC_VER=1.18.2
 ARG FABRIC_VER=0.10.2
 
 LABEL maintainer="Spritsail <minecraft@spritsail.io>" \
