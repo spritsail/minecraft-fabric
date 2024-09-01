@@ -1,13 +1,16 @@
 def main(ctx):
   return [
-    step("1.18.2","0.11.0"),
-    step("1.19","0.11.0",["latest"]),
+    step("1.20.6", "0.16.3"),
+    step("1.21.1", "0.16.3", ["latest"]),
   ]
 
-def step(mcver,fabricver,tags=[]):
+def step(mcver,fabricver,tags=[],jre="21"):
   return {
     "kind": "pipeline",
     "name": "build-%s" % mcver,
+    "environment": {
+      "DOCKER_IMAGE_TOKEN": "%s-%s" % (mcver, fabricver),
+    },
     "steps": [
       {
         "name": "build",
@@ -16,6 +19,7 @@ def step(mcver,fabricver,tags=[]):
         "settings": {
           "build_args": [
             "MC_VER=%s" % mcver,
+            "JRE_VER=%s" % jre,
             "FABRIC_VER=%s" % fabricver,
           ],
         },
